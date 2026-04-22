@@ -17,6 +17,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 107%;
 }
 
 body {
@@ -26,63 +27,231 @@ body {
     line-height: 1.6;
 }
 
-/* HEADER */
-header {
+/* LIGHT THEME */
+body.light {
+    --bg: #f4f4f5;
+    --surface: #ffffff;
+    --surface2: #e8e8ec;
+    --border: #d4d4d8;
+    --text: #111111;
+    --muted: #52525b;
+    --accent: #5b4de0;
+    --accent-hover: #7c6aff;
+}
+
+body.light #home::before {
+    background: linear-gradient(to bottom, rgba(244,244,245,0.4) 0%, rgba(244,244,245,0.82) 45%, rgba(244,244,245,1) 100%);
+}
+
+/* TOP CONTROLS */
+.top-controls {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    background-color: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    height: 60px;
+    top: 1rem;
+    right: 1rem;
+    z-index: 300;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.ctrl-btn {
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.45rem 0.7rem;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(12px);
+    transition: border-color 0.2s, color 0.2s;
+    min-width: 38px;
+    height: 38px;
 }
 
-.logo {
-    font-size: 1.1rem;
-    font-weight: 800;
+body.light .ctrl-btn,
+body.light .menu-toggle {
+    background: rgba(244, 244, 245, 0.85);
+}
+
+.ctrl-btn:hover {
+    border-color: var(--accent);
     color: var(--accent);
-    text-decoration: none;
-    letter-spacing: 0.05em;
 }
 
-header nav {
-    display: flex;
-    gap: 2rem;
+/* LANGUAGE DROPDOWN */
+.lang-dropdown {
+    position: relative;
 }
 
-header nav a {
+.lang-current {
+    gap: 0.35rem;
+}
+
+.lang-current svg {
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+
+.lang-dropdown.open .lang-current svg {
+    transform: rotate(180deg);
+}
+
+.lang-menu {
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    right: 0;
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.3rem;
+    list-style: none;
+    display: none;
+    min-width: 100%;
+    backdrop-filter: blur(12px);
+    z-index: 400;
+}
+
+body.light .lang-menu {
+    background: rgba(244, 244, 245, 0.97);
+}
+
+.lang-dropdown.open .lang-menu {
+    display: block;
+}
+
+.lang-option {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 0.75rem;
     color: var(--muted);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s, color 0.15s;
 }
 
-header nav a:hover,
-header nav a.active {
+.lang-option:hover {
+    background: var(--surface2);
     color: var(--text);
 }
 
-.header-socials {
-    display: flex;
-    gap: 1rem;
+.lang-option.active {
+    color: var(--accent);
 }
 
-.header-socials a {
+#themeToggle .icon-sun  { display: none; }
+#themeToggle .icon-moon { display: block; }
+body.light #themeToggle .icon-sun  { display: block; }
+body.light #themeToggle .icon-moon { display: none; }
+
+/* HAMBURGER TOGGLE */
+.menu-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 300;
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.55rem 0.65rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    backdrop-filter: blur(12px);
+    transition: border-color 0.2s;
+}
+
+.menu-toggle:hover {
+    border-color: var(--accent);
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text);
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* OVERLAY */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+}
+
+.nav-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* SIDE NAV */
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 240px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    z-index: 250;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 2rem 2rem;
+    gap: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.side-nav.open {
+    transform: translateX(0);
+}
+
+.side-nav a {
     color: var(--muted);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: color 0.2s;
+    font-size: 0.95rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s, padding-left 0.2s;
 }
 
-.header-socials a:hover {
-    color: var(--accent);
+.side-nav a:last-child {
+    border-bottom: none;
+}
+
+.side-nav a:hover,
+.side-nav a.active {
+    color: var(--text);
+    padding-left: 0.4rem;
 }
 
 /* LAYOUT */
@@ -127,7 +296,7 @@ main {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 60px;
+    padding-top: 0;
     position: relative;
     width: 100%;
     background-image: url('../background.jpg');
@@ -249,7 +418,7 @@ main {
 /* PROJECTS */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -329,7 +498,7 @@ main {
 /* SKILLS */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
     gap: 2.5rem;
     margin-top: 2rem;
 }
@@ -470,17 +639,6 @@ footer {
 }
 
 @media (max-width: 720px) {
-    header nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem 1.25rem;
-    }
-
-    header nav a {
-        font-size: 0.82rem;
-    }
-
     .hero-content h1 {
         font-size: 2.6rem;
     }
