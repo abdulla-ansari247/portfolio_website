@@ -57,74 +57,11 @@ document.querySelectorAll('.lang-option').forEach(opt => {
     });
 });
 
+// English copy lives in index.html: the text inside each [data-i18n] element is the
+// single source of truth for EN, snapshotted below before anything overwrites it.
+// Only translations *away* from English belong in here — so there is no duplicated
+// English string that can drift out of sync with the markup.
 const translations = {
-    en: {
-        'nav-about':      'About',
-        'nav-projects':   'Projects',
-        'nav-skills':     'Skills',
-        'nav-experience': 'Experience',
-        'nav-contact':    'Contact',
-
-        'hero-tag':     'Available for work',
-        'hero-heading': 'Hi, I\'m<br><span class="accent">Abdulla Ansari</span>',
-        'hero-desc':    'Physics undergraduate with a passion for simulation and problem-solving. I am always eager to learn and advance myself to my potential.',
-        'btn-work':     'View My Work',
-        'btn-contact':  'Get in Touch',
-
-        'about-p1': 'I\'m a Physics undergraduate at the <strong>University of Debrecen</strong>, building a solid grounding in classical mechanics, thermodynamics, quantum and nuclear physics, and the mathematical methods that define them.',
-        'about-p2': 'I use tools like GEANT4, Python, and Linux to turn physical models into working simulations, whether that\'s optimising X-ray imaging systems or modelling the reliability of offshore energy infrastructure.',
-        'about-p3': 'Outside of physics, I\'ve worked as a freelance developer and private tutor, which has sharpened both my technical range and my ability to communicate complex ideas clearly. I\'m methodical, detail-oriented, and comfortable picking up new tools when the problem calls for it.',
-        'about-p4': 'My biggest strength is how I approach problems. I don\'t move to solutions until I\'ve properly understood the full picture. Working with GEANT4 for my thesis, for instance, meant building a deep understanding of particle interaction geometry before a single simulation run made sense. That instinct to understand before acting has shaped how I work across physics, programming, and tutoring.',
-
-        'projects-sub': 'A collection of things I\'ve worked on — simulations, experiments, and open source contributions.',
-        'proj1-title':  'X-Ray Imaging Optimization',
-        'proj1-status': 'Research',
-        'proj1-desc':   'Designed and optimized a multi-source X-ray imaging configuration using GEANT4 simulations to improve depth perception and structural resolution in radiographic imaging. Evaluated performance through statistical analysis of contrast, spatial resolution, and structural visibility.',
-        'proj2-title':  'Wind Turbine Reliability Simulation',
-        'proj2-status': 'Simulation',
-        'proj2-desc':   'Built a Monte Carlo simulation system in Python and SQL to model failure rates and reliability behavior of offshore wind turbine components. Applied Poisson distribution methods to predict maintenance intervals and optimize system performance.',
-        'proj3-title':  '2D AI Racer',
-        'proj3-status': 'In Progress',
-        'proj3-desc':   'A top-down 2D racing game built from scratch in Python with Pygame. Implements vector-based car physics \u2014 acceleration, drag, and rotational steering resolved through trigonometric motion \u2014 with pixel-mask track borders as the groundwork for a self-driving agent that learns the racing line.',
-        'proj4-title':  'Portfolio Website',
-        'proj4-status': 'Web',
-        'proj4-desc':   'This site \u2014 a responsive single-page portfolio hand-written in vanilla HTML, CSS, and JavaScript with no frameworks or build step. Features a scroll-synced navigation, a persistent light/dark theme, and full English/Hungarian localisation driven by a lightweight custom i18n layer.',
-        'proj-github':  'View on GitHub',
-        'proj-live':    'Live Site',
-
-        'skills-prog':   'Programming',
-        'skills-tools':  'Tools &amp; Frameworks',
-        'skills-domain': 'Domain Knowledge',
-        'pill-stats':    'Statistical Analysis',
-        'pill-physics':  'Game Physics',
-        'pill-num':      'Numerical Modelling',
-        'pill-stat':     'Statistical Modelling',
-        'pill-data':     'Data Analysis',
-
-        'exp1-title':  'Battery Cell Quality &amp; Sorting Operative',
-        'exp1-date':   'Jun. 2026 — Present',
-        'exp1-org':    'CATL (Contemporary Amperex Technology), Debrecen, Hungary',
-        'exp1-desc':   'Working on the production line of one of the world’s largest lithium-ion battery manufacturers, sorting and grading cells against defined quality specifications. Operating to tight tolerances in a high-throughput, precision-driven manufacturing environment where consistency and attention to detail directly determine downstream product reliability.',
-        'exp2-title':  'B.Sc Physics',
-        'exp2-date':   'Sept. 2023 — Present',
-        'exp2-org':    'University of Debrecen, Hungary',
-        'exp2-desc':   'Coursework spanning classical mechanics, electrodynamics, quantum mechanics, nuclear physics, thermodynamics, and computational physics. Research focused on simulation development with GEANT4 and Python in Linux environments.',
-        'exp3-title':  'Private Tutor',
-        'exp3-date':   'Sept. 2020 — Jul. 2026',
-        'exp3-org':    'Independent / Remote',
-        'exp3-desc':   'One-to-one tutoring in Mathematics, Physics, and Computer Science at primary and secondary level. Focus on structured problem-solving, conceptual understanding, and exam preparation.',
-        'exp4-title':  'Relationship Manager',
-        'exp4-date':   'Feb. 2023 — Jul. 2023',
-        'exp4-org':    'Bellavista Real Estate, Dubai, UAE',
-        'exp4-desc':   'Acted as the central point of contact between clients, agents, developers, and international agencies, coordinating across multiple parties to keep deals moving and ensure everyone stayed aligned. Built strong working relationships in a fast-paced, people-driven environment.',
-        'exp5-title':  'Freelance Programming Developer',
-        'exp5-date':   'Jan. 2021 — Feb. 2023',
-        'exp5-org':    'Independent / Remote',
-        'exp5-desc':   'Built custom software solutions for client projects using Python, JavaScript (Node.js), Java, and HTML. Handled backend logic, interactive web components, and end-to-end delivery while managing client communication independently.',
-
-        'cv-sub':      'Interested in me? You can view or download my CV from here.',
-        'contact-sub': 'Have a question, opportunity, or just want to chat? I\'m happy to hear from you.',
-    },
     hu: {
         'nav-about':      'Rólam',
         'nav-projects':   'Projektek',
@@ -134,7 +71,7 @@ const translations = {
 
         'hero-tag':     'Munkát keresek',
         'hero-heading': 'Szia, én vagyok<br><span class="accent">Ansari Abdulla</span>',
-        'hero-desc':    'Fizika hallgató, aki szenvedélyesen foglalkozik szimulációkkal és problémamegoldással. Mindig készen állok tanulni és kibontakoztatni a bennem rejlő lehetőségeket.',
+        'hero-desc':    'Fizika hallgató, aki szenvedélyesen foglalkozik szimulációkkal és problémamegoldással. Mindig készen állok tanulni és kibontakoztatni a bennem rejlő lehetőségeket. Március 1-jétől elérhető vagyok munkavállalásra Hollandiában.',
         'btn-work':     'Munkáim megtekintése',
         'btn-contact':  'Kapcsolatba lépés',
 
@@ -171,7 +108,7 @@ const translations = {
         'exp1-title':  'Akkumulátorcella Minőségellenőr és Osztályozó',
         'exp1-date':   '2026. jún. — jelenleg',
         'exp1-org':    'CATL (Contemporary Amperex Technology), Debrecen, Magyarország',
-        'exp1-desc':   'A világ egyik legnagyobb lítium-ion akkumulátorgyártójának gyártósorán dolgozom, ahol cellákat osztályozok és minősítek meghatározott minőségi előírások alapján. Szűk tűréshatárok között, nagy átbocsátóképességű, precizitásra épülő gyártási környezetben végzem a munkát, ahol a következetesség és a részletekre való odafigyelés közvetlenül meghatározza a végtermék megbízhatóságát.',
+        'exp1-desc':   'A világ egyik legnagyobb lítium-ion akkumulátorgyártójának gyártósorán dolgozom. Szűk tűréshatárok között, precizitásra épülő gyártási környezetben végzem a munkát, ahol a következetesség és a részletekre való odafigyelés közvetlenül meghatározza a végtermék megbízhatóságát.',
         'exp2-title':  'BSc Fizika',
         'exp2-date':   '2023. szept. — jelenleg',
         'exp2-org':    'Debreceni Egyetem, Magyarország',
@@ -194,11 +131,19 @@ const translations = {
     }
 };
 
+// Captured once, before the first applyLanguage() call, so it holds the untouched
+// English markup. Switching back to EN restores from here.
+const englishCopy = {};
+document.querySelectorAll('[data-i18n]').forEach(el => {
+    englishCopy[el.getAttribute('data-i18n')] = el.innerHTML;
+});
+
 function applyLanguage(lang) {
-    const t = translations[lang];
+    const t = translations[lang] || englishCopy;
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key] !== undefined) el.innerHTML = t[key];
+        const value = t[key] !== undefined ? t[key] : englishCopy[key];
+        if (value !== undefined) el.innerHTML = value;
     });
     langBtn.childNodes[0].textContent = lang.toUpperCase() + ' ';
     document.documentElement.lang = lang;
