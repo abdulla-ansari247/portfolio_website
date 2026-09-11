@@ -71,7 +71,7 @@ const translations = {
 
         'hero-tag':     'Munkát keresek',
         'hero-heading': 'Szia, én vagyok<br><span class="accent">Ansari Abdulla</span>',
-        'hero-desc':    'Fizika hallgató, aki szenvedélyesen foglalkozik szimulációkkal és problémamegoldással. Mindig készen állok tanulni és kibontakoztatni a bennem rejlő lehetőségeket. Március 1-jétől elérhető vagyok munkavállalásra Hollandiában.',
+        'hero-desc':    'Fizika hallgató, aki szenvedélyesen foglalkozik szimulációkkal és problémamegoldással. Mindig készen állok tanulni és kibontakoztatni a bennem rejlő lehetőségeket. <strong>Jelenleg elérhető vagyok távmunkára, Hollandiában pedig március 1-jétől tudok munkát vállalni.</strong>',
         'btn-work':     'Munkáim megtekintése',
         'btn-contact':  'Kapcsolatba lépés',
 
