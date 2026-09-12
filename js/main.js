@@ -127,6 +127,8 @@ const translations = {
 
         'cv-sub':      'Felkeltette az érdeklődésedet? Az önéletrajzomat innen töltheted le vagy tekintheted meg.',
         'contact-sub': 'Kérdésed van, lehetőséget kínálsz, vagy csak szeretnél csevegni? Szívesen hallom.',
+
+        'constant-label': 'A pillanat állandója',
     }
 };
 
@@ -152,3 +154,47 @@ function applyLanguage(lang) {
 }
 
 applyLanguage(currentLang);
+
+/* ---- CONSTANT OF THE MOMENT -------------------------------------------
+   Entirely decorative. A physics constant sits in the footer and swaps for
+   another one when clicked. Nothing navigates through it and nothing else
+   reads it — it is here because a physics portfolio may as well have one. */
+
+const CONSTANTS = [
+    { sym: 'c',   val: '299 792 458 m s⁻¹',            en: 'Speed of light in vacuum',   hu: 'Fénysebesség vákuumban' },
+    { sym: 'h',   val: '6.626 070 15 × 10⁻³⁴ J s',     en: 'Planck constant',            hu: 'Planck-állandó' },
+    { sym: 'ħ',   val: '1.054 571 817 × 10⁻³⁴ J s',    en: 'Reduced Planck constant',    hu: 'Redukált Planck-állandó' },
+    { sym: 'e',   val: '1.602 176 634 × 10⁻¹⁹ C',      en: 'Elementary charge',          hu: 'Elemi töltés' },
+    { sym: 'k_B', val: '1.380 649 × 10⁻²³ J K⁻¹',      en: 'Boltzmann constant',         hu: 'Boltzmann-állandó' },
+    { sym: 'N_A', val: '6.022 140 76 × 10²³ mol⁻¹',    en: 'Avogadro constant',          hu: 'Avogadro-állandó' },
+    { sym: 'G',   val: '6.674 30 × 10⁻¹¹ m³ kg⁻¹ s⁻²', en: 'Gravitational constant',     hu: 'Gravitációs állandó' },
+    { sym: 'α',   val: '1 / 137.035 999 177',          en: 'Fine-structure constant',    hu: 'Finomszerkezeti állandó' },
+    { sym: 'σ',   val: '5.670 374 419 × 10⁻⁸ W m⁻² K⁻⁴', en: 'Stefan–Boltzmann constant', hu: 'Stefan–Boltzmann-állandó' }
+];
+
+const constantBtn  = document.getElementById('constant');
+const constantVal  = document.getElementById('constantValue');
+const constantName = document.getElementById('constantName');
+
+if (constantBtn) {
+    let constantIdx = Math.floor(Math.random() * CONSTANTS.length);
+
+    const renderConstant = () => {
+        const k = CONSTANTS[constantIdx];
+        /* subscripts are written k_B / N_A in the data and marked up here */
+        constantVal.innerHTML = '<b>' + k.sym.replace(/_(.)/, '<sub>$1</sub>') + '</b> = ' + k.val;
+        constantName.textContent = k[currentLang] || k.en;
+    };
+
+    constantBtn.addEventListener('click', () => {
+        constantIdx = (constantIdx + 1) % CONSTANTS.length;
+        renderConstant();
+    });
+
+    /* runs after the handler that updates currentLang, so the name follows the language */
+    document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.addEventListener('click', renderConstant);
+    });
+
+    renderConstant();
+}

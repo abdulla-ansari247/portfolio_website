@@ -653,6 +653,51 @@ footer {
     margin-top: 6rem;
 }
 
+/* CONSTANT OF THE MOMENT — decorative footer widget */
+.constant {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    margin-top: 1.4rem;
+    padding: 0.6rem 1.1rem;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.constant:hover {
+    border-color: var(--accent);
+}
+
+.constant-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--muted);
+}
+
+.constant-value {
+    font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+    font-size: 0.85rem;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+
+.constant-value b {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.constant-name {
+    font-size: 0.68rem;
+    color: var(--muted);
+}
+
 /* RESPONSIVE */
 @media (max-width: 860px) {
     .about-grid {
