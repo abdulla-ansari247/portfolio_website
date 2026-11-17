@@ -36,140 +36,21 @@ themeBtn.addEventListener('click', () => {
     localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
 });
 
-// ── Language ───────────────────────────────────────────────────────────────────
-const langBtn      = document.getElementById('langToggle');
-const langDropdown = document.getElementById('langDropdown');
-let currentLang    = localStorage.getItem('lang') || 'en';
-
-langBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    langDropdown.classList.toggle('open');
-});
-
-document.addEventListener('click', () => langDropdown.classList.remove('open'));
-
-document.querySelectorAll('.lang-option').forEach(opt => {
-    opt.addEventListener('click', () => {
-        currentLang = opt.dataset.lang;
-        localStorage.setItem('lang', currentLang);
-        applyLanguage(currentLang);
-        langDropdown.classList.remove('open');
-    });
-});
-
-// English copy lives in index.html: the text inside each [data-i18n] element is the
-// single source of truth for EN, snapshotted below before anything overwrites it.
-// Only translations *away* from English belong in here — so there is no duplicated
-// English string that can drift out of sync with the markup.
-const translations = {
-    hu: {
-        'nav-about':      'Rólam',
-        'nav-projects':   'Projektek',
-        'nav-skills':     'Készségek',
-        'nav-experience': 'Tapasztalat',
-        'nav-contact':    'Kapcsolat',
-
-        'hero-tag':     'Munkát keresek',
-        'hero-heading': 'Szia, én vagyok<br><span class="accent">Ansari Abdulla</span>',
-        'hero-desc':    'Fizika hallgató, aki szenvedélyesen foglalkozik szimulációkkal és problémamegoldással. Mindig készen állok tanulni és kibontakoztatni a bennem rejlő lehetőségeket. <strong>Jelenleg elérhető vagyok távmunkára, Hollandiában pedig március 1-jétől tudok munkát vállalni.</strong>',
-        'btn-work':     'Munkáim megtekintése',
-        'btn-contact':  'Kapcsolatba lépés',
-
-        'about-p1': 'Fizika alapszakos hallgató vagyok a <strong>Debreceni Egyetemen</strong>, ahol szilárd alapokat építek klasszikus mechanikában, termodinamikában, kvantum- és magfizikában, valamint az ezeket meghatározó matematikai módszerekben.',
-        'about-p2': 'Olyan eszközöket használok, mint a GEANT4, Python és Linux, hogy fizikai modelleket működő szimulációkká alakítsak — legyen szó röntgen képalkotó rendszerek optimalizálásáról vagy offshore energiainfrastruktúra megbízhatóságának modellezéséről.',
-        'about-p3': 'A fizikán kívül szabadúszó fejlesztőként és magántanárként is dolgoztam, ami mind a technikai szélességemet, mind az összetett gondolatok világos kommunikálásának képességét fejlesztette. Módszeres és részletorientált vagyok, és szívesen veszek fel új eszközöket, ha a feladat megköveteli.',
-        'about-p4': 'A legnagyobb erősségem a problémamegközelítésem. Nem lépek megoldások felé, amíg teljesen nem értem a teljes képet. A GEANT4-gyel való munka a diplomamunkámhoz például azt jelentette, hogy mélyen meg kellett értenem a részecske-kölcsönhatás geometriáját, mielőtt egyetlen szimulációs futtatás is értelmet nyert. Ez az ösztön — érteni mielőtt cselekedni — meghatározta, hogyan dolgozom a fizikában, a programozásban és az oktatásban egyaránt.',
-
-        'projects-sub': 'Munkáim gyűjteménye — szimulációk, kísérletek és nyílt forráskódú projektek.',
-        'proj1-title':  'Röntgen Képalkotás Optimalizálása',
-        'proj1-status': 'Kutatás',
-        'proj1-desc':   'Többforrású röntgen képalkotó konfigurációt terveztem és optimalizáltam GEANT4 szimulációk segítségével, a mélységérzékelés és strukturális felbontás javítása érdekében. A teljesítményt kontraszt, térbeli felbontás és strukturális láthatóság statisztikai elemzésével értékeltem.',
-        'proj2-title':  'Szélturbina Megbízhatósági Szimuláció',
-        'proj2-status': 'Szimuláció',
-        'proj2-desc':   'Monte Carlo szimulációs rendszert építettem Python és SQL segítségével offshore szélturbina-alkatrészek meghibásodási arányainak modellezésére. Poisson-eloszlási módszereket alkalmaztam a karbantartási intervallumok előrejelzésére és a rendszerteljesítmény optimalizálására.',
-        'proj3-title':  '2D AI Versenyőjáték',
-        'proj3-status': 'Folyamatban',
-        'proj3-desc':   'Felülnézetes 2D autóverseny-játék, amelyet a nulláról építettem Pythonban Pygame segítségével. Vektoralapú autófizikát valósít meg \u2014 gyorsulást, lassulást és forgási kormányzást trigonometrikus mozgással \u2014 pixelmaszkos pályahatárokkal, megalapozva egy önvezető ügynököt, amely megtanulja az ideális ívet.',
-        'proj4-title':  'Portfólió Weboldal',
-        'proj4-status': 'Web',
-        'proj4-desc':   'Ez az oldal \u2014 reszponzív, egyoldalas portfólió, amelyet kézzel írtam tiszta HTML, CSS és JavaScript nyelven, keretrendszer és build-lépés nélkül. Görgetéshez igazított navigációt, megőrzött világos/sötét témát és teljes angol/magyar lokalizációt tartalmaz egy könnyű, saját i18n réteggel.',
-        'proj-github':  'Megtekintés a GitHubon',
-
-        'skills-prog':   'Programozás',
-        'skills-tools':  'Eszközök &amp; Keretrendszerek',
-        'skills-domain': 'Szakterületi Tudás',
-        'pill-stats':    'Statisztikai Elemzés',
-        'pill-physics':  'Játékfizika',
-        'pill-num':      'Numerikus Modellezés',
-        'pill-stat':     'Statisztikai Modellezés',
-        'pill-data':     'Adatelemzés',
-
-        'exp1-title':  'BSc Fizika',
-        'exp1-date':   '2023. szept. — jelenleg',
-        'exp1-org':    'Debreceni Egyetem, Magyarország',
-        'exp1-desc':   'Tantárgyak: klasszikus mechanika, elektrodinamika, kvantummechanika, magfizika, termodinamika és számítógépes fizika. A kutatás GEANT4 és Python szimulációk fejlesztésére összpontosult Linux környezetben.',
-        'exp2-title':  'Szabadúszó Programozó Fejlesztő',
-        'exp2-date':   '2021. jan. — jelenleg',
-        'exp2-org':    'Önálló / Távmunka',
-        'exp2-desc':   'Egyedi szoftvermegoldásokat készítek ügyféli projektekhez Python, JavaScript (Node.js), Java és HTML használatával. Kezelem a backend logikát, az interaktív webes komponenseket és a végponttól végpontig tartó szállítást, miközben önállóan intézem az ügyfélkommunikációt.',
-        'exp3-title':  'Akkumulátorcella Minőségellenőr és Osztályozó',
-        'exp3-date':   '2026. jún. — jelenleg',
-        'exp3-org':    'CATL (Contemporary Amperex Technology), Debrecen, Magyarország',
-        'exp3-desc':   'A világ egyik legnagyobb lítium-ion akkumulátorgyártójának gyártósorán dolgozom. Szűk tűréshatárok között, precizitásra épülő gyártási környezetben végzem a munkát, ahol a következetesség és a részletekre való odafigyelés közvetlenül meghatározza a végtermék megbízhatóságát.',
-        'exp4-title':  'Magántanár',
-        'exp4-date':   '2020. szept. — 2026. júl.',
-        'exp4-org':    'Önálló / Távmunka',
-        'exp4-desc':   'Egyéni oktatás matematikából, fizikából és számítástechnikából általános és középiskolai szinten. Fókusz a strukturált problémamegoldáson, fogalmi megértésen és vizsgafelkészítésen.',
-        'exp5-title':  'Kapcsolati Manager',
-        'exp5-date':   '2023. febr. — 2023. júl.',
-        'exp5-org':    'Bellavista Ingatlan, Dubai, UAE',
-        'exp5-desc':   'Az ügyfelek, ügynökök, fejlesztők és nemzetközi ügynökségek közötti kapcsolattartó pontként működtem, koordinálva több fél között az ügyletek előrehaladásának biztosítása érdekében. Erős munkakapcsolatokat építettem ki egy gyors tempójú, emberközpontú környezetben.',
-
-        'cv-sub':      'Felkeltette az érdeklődésedet? Az önéletrajzomat innen töltheted le vagy tekintheted meg.',
-        'contact-sub': 'Kérdésed van, lehetőséget kínálsz, vagy csak szeretnél csevegni? Szívesen hallom.',
-
-        'constant-label': 'A pillanat állandója',
-    }
-};
-
-// Captured once, before the first applyLanguage() call, so it holds the untouched
-// English markup. Switching back to EN restores from here.
-const englishCopy = {};
-document.querySelectorAll('[data-i18n]').forEach(el => {
-    englishCopy[el.getAttribute('data-i18n')] = el.innerHTML;
-});
-
-function applyLanguage(lang) {
-    const t = translations[lang] || englishCopy;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const value = t[key] !== undefined ? t[key] : englishCopy[key];
-        if (value !== undefined) el.innerHTML = value;
-    });
-    langBtn.childNodes[0].textContent = lang.toUpperCase() + ' ';
-    document.documentElement.lang = lang;
-    document.querySelectorAll('.lang-option').forEach(opt => {
-        opt.classList.toggle('active', opt.dataset.lang === lang);
-    });
-}
-
-applyLanguage(currentLang);
-
 /* ---- CONSTANT OF THE MOMENT -------------------------------------------
    Entirely decorative. A physics constant sits in the footer and swaps for
    another one when clicked. Nothing navigates through it and nothing else
    reads it — it is here because a physics portfolio may as well have one. */
 
 const CONSTANTS = [
-    { sym: 'c',   val: '299 792 458 m s⁻¹',            en: 'Speed of light in vacuum',   hu: 'Fénysebesség vákuumban' },
-    { sym: 'h',   val: '6.626 070 15 × 10⁻³⁴ J s',     en: 'Planck constant',            hu: 'Planck-állandó' },
-    { sym: 'ħ',   val: '1.054 571 817 × 10⁻³⁴ J s',    en: 'Reduced Planck constant',    hu: 'Redukált Planck-állandó' },
-    { sym: 'e',   val: '1.602 176 634 × 10⁻¹⁹ C',      en: 'Elementary charge',          hu: 'Elemi töltés' },
-    { sym: 'k_B', val: '1.380 649 × 10⁻²³ J K⁻¹',      en: 'Boltzmann constant',         hu: 'Boltzmann-állandó' },
-    { sym: 'N_A', val: '6.022 140 76 × 10²³ mol⁻¹',    en: 'Avogadro constant',          hu: 'Avogadro-állandó' },
-    { sym: 'G',   val: '6.674 30 × 10⁻¹¹ m³ kg⁻¹ s⁻²', en: 'Gravitational constant',     hu: 'Gravitációs állandó' },
-    { sym: 'α',   val: '1 / 137.035 999 177',          en: 'Fine-structure constant',    hu: 'Finomszerkezeti állandó' },
-    { sym: 'σ',   val: '5.670 374 419 × 10⁻⁸ W m⁻² K⁻⁴', en: 'Stefan–Boltzmann constant', hu: 'Stefan–Boltzmann-állandó' }
+    { sym: 'c',   val: '299 792 458 m s⁻¹',            en: 'Speed of light in vacuum' },
+    { sym: 'h',   val: '6.626 070 15 × 10⁻³⁴ J s',     en: 'Planck constant' },
+    { sym: 'ħ',   val: '1.054 571 817 × 10⁻³⁴ J s',    en: 'Reduced Planck constant' },
+    { sym: 'e',   val: '1.602 176 634 × 10⁻¹⁹ C',      en: 'Elementary charge' },
+    { sym: 'k_B', val: '1.380 649 × 10⁻²³ J K⁻¹',      en: 'Boltzmann constant' },
+    { sym: 'N_A', val: '6.022 140 76 × 10²³ mol⁻¹',    en: 'Avogadro constant' },
+    { sym: 'G',   val: '6.674 30 × 10⁻¹¹ m³ kg⁻¹ s⁻²', en: 'Gravitational constant' },
+    { sym: 'α',   val: '1 / 137.035 999 177',          en: 'Fine-structure constant' },
+    { sym: 'σ',   val: '5.670 374 419 × 10⁻⁸ W m⁻² K⁻⁴', en: 'Stefan–Boltzmann constant' }
 ];
 
 const constantBtn  = document.getElementById('constant');
@@ -183,17 +64,12 @@ if (constantBtn) {
         const k = CONSTANTS[constantIdx];
         /* subscripts are written k_B / N_A in the data and marked up here */
         constantVal.innerHTML = '<b>' + k.sym.replace(/_(.)/, '<sub>$1</sub>') + '</b> = ' + k.val;
-        constantName.textContent = k[currentLang] || k.en;
+        constantName.textContent = k.en;
     };
 
     constantBtn.addEventListener('click', () => {
         constantIdx = (constantIdx + 1) % CONSTANTS.length;
         renderConstant();
-    });
-
-    /* runs after the handler that updates currentLang, so the name follows the language */
-    document.querySelectorAll('.lang-option').forEach(opt => {
-        opt.addEventListener('click', renderConstant);
     });
 
     renderConstant();

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdulla Ansari</title>
-    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
@@ -15,18 +15,6 @@
     </button>
 
     <div class="top-controls">
-        <div class="lang-dropdown" id="langDropdown">
-            <button class="ctrl-btn lang-current" id="langToggle" aria-label="Switch language">
-                EN
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="2,3 5,7 8,3"/>
-                </svg>
-            </button>
-            <ul class="lang-menu">
-                <li><button class="lang-option" data-lang="en">EN</button></li>
-                <li><button class="lang-option" data-lang="hu">HU</button></li>
-            </ul>
-        </div>
         <button class="ctrl-btn" id="themeToggle" aria-label="Toggle theme">
             <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="5"/>
@@ -48,23 +36,23 @@
     <div class="nav-overlay" id="navOverlay"></div>
 
     <nav class="side-nav" id="sideNav">
-        <a href="#about"      data-i18n="nav-about">About</a>
-        <a href="#projects"   data-i18n="nav-projects">Projects</a>
-        <a href="#skills"     data-i18n="nav-skills">Skills</a>
-        <a href="#experience" data-i18n="nav-experience">Experience</a>
+        <a href="#about"     >About</a>
+        <a href="#projects"  >Projects</a>
+        <a href="#skills"    >Skills</a>
+        <a href="#experience">Experience</a>
         <a href="#cv">CV</a>
-        <a href="#contact"    data-i18n="nav-contact">Contact</a>
+        <a href="#contact"   >Contact</a>
     </nav>
 
     <!-- HERO -->
     <section id="home">
         <div class="hero-content">
-            <span class="tag" data-i18n="hero-tag">Available for work</span>
-            <h1 data-i18n="hero-heading">Hi, I'm<br><span class="accent">Abdulla Ansari</span></h1>
-            <p data-i18n="hero-desc">Physics undergraduate with a passion for simulation and problem-solving. I am always eager to learn and advance myself to my potential. <strong>Currently available for remote work, and available to work in the Netherlands from March 1st</strong></p>
+            <span class="tag">Available for work</span>
+            <h1>Hi, I'm<br><span class="accent">Abdulla Ansari</span></h1>
+            <p>Physics undergraduate with a passion for simulation and problem-solving. I am always eager to learn and advance myself to my potential. <strong>Currently available for remote work, and available to work in the Netherlands from February 1st</strong></p>
             <div class="hero-btns">
-                <a href="#projects" class="btn btn-primary" data-i18n="btn-work">View My Work</a>
-                <a href="#contact"  class="btn btn-outline"  data-i18n="btn-contact">Get in Touch</a>
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact"  class="btn btn-outline" >Get in Touch</a>
             </div>
         </div>
     </section>
@@ -73,48 +61,49 @@
 
         <!-- ABOUT -->
         <section id="about" class="section">
-            <h2 class="section-title" data-i18n="nav-about">About</h2>
+            <h2 class="section-title">About</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p data-i18n="about-p1">I'm a Physics undergraduate at the <strong>University of Debrecen</strong>, building a solid grounding in classical mechanics, thermodynamics, quantum and nuclear physics, and the mathematical methods that define them.</p>
-                    <p data-i18n="about-p2">I use tools like GEANT4, Python, and Linux to turn physical models into working simulations, whether that's optimising X-ray imaging systems or modelling the reliability of offshore energy infrastructure.</p>
-                    <p data-i18n="about-p3">Outside of physics, I've worked as a freelance developer and private tutor, which has sharpened both my technical range and my ability to communicate complex ideas clearly. I'm methodical, detail-oriented, and comfortable picking up new tools when the problem calls for it.</p>
-                    <p data-i18n="about-p4">My biggest strength is how I approach problems. I don't move to solutions until I've properly understood the full picture. Working with GEANT4 for my thesis, for instance, meant building a deep understanding of particle interaction geometry before a single simulation run made sense. That instinct to understand before acting has shaped how I work across physics, programming, and tutoring.</p>
+                    <p>I'm a Physics undergraduate at the <strong>University of Debrecen</strong>, building a solid grounding in classical mechanics, thermodynamics, quantum and nuclear physics, and the mathematical methods that define them.</p>
+                    <p>I use tools like GEANT4, Python, and Linux to turn physical models into working simulations, whether that's optimising X-ray imaging systems or modelling the reliability of offshore energy infrastructure.</p>
+                    <p>Outside of physics, I've worked as a freelance developer and private tutor, which has sharpened both my technical range and my ability to communicate complex ideas clearly. I'm methodical, detail-oriented, and comfortable picking up new tools when the problem calls for it.</p>
+                    <p>My biggest strength is how I approach problems. I don't move to solutions until I've properly understood the full picture. Working with GEANT4 for my thesis, for instance, meant building a deep understanding of particle interaction geometry before a single simulation run made sense. That instinct to understand before acting has shaped how I work across physics, programming, and tutoring.</p>
                 </div>
             </div>
         </section>
 
         <!-- PROJECTS -->
         <section id="projects" class="section">
-            <h2 class="section-title" data-i18n="nav-projects">Projects</h2>
-            <p class="section-sub" data-i18n="projects-sub">A collection of things I've worked on — simulations, experiments, and open source contributions.</p>
+            <h2 class="section-title">Projects</h2>
+            <p class="section-sub">A collection of things I've worked on — simulations, experiments, and open source contributions.</p>
             <div class="projects-grid">
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 data-i18n="proj1-title">X-Ray Imaging Optimization</h3>
-                        <span class="project-status" data-i18n="proj1-status">Research</span>
+                        <h3>X-Ray Imaging Optimization</h3>
+                        <span class="project-status">Research</span>
                     </div>
-                    <p data-i18n="proj1-desc">Designed and optimized a multi-source X-ray imaging configuration using GEANT4 simulations to improve depth perception and structural resolution in radiographic imaging. Evaluated performance through statistical analysis of contrast, spatial resolution, and structural visibility.</p>
+                    <p>My bachelor thesis: optimizing a multi-source X-ray imaging setup in my own C++ simulation on GEANT4, running 1,000,000 gamma-ray primaries per configuration. Models angled radiation sources and particle interactions to detect obscured structures within dense materials such as bone, with statistical analysis of the imaging outputs in Python to optimize source geometry and beam orientation against traditional single-source X-ray methods.</p>
                     <div class="project-tags">
                         <span class="tag-pill">GEANT4</span>
                         <span class="tag-pill">C++</span>
-                        <span class="tag-pill" data-i18n="pill-stats">Statistical Analysis</span>
+                        <span class="tag-pill">Python</span>
+                        <span class="tag-pill">Statistical Analysis</span>
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/abdulla-ansari247/geant4-xray-imaging-thesis" target="_blank" rel="noopener" class="project-link">
                             <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-                            <span data-i18n="proj-github">View on GitHub</span>
+                            <span>View on GitHub</span>
                         </a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 data-i18n="proj2-title">Wind Turbine Reliability Simulation</h3>
-                        <span class="project-status" data-i18n="proj2-status">Simulation</span>
+                        <h3>Wind Turbine Reliability Simulation</h3>
+                        <span class="project-status">Simulation</span>
                     </div>
-                    <p data-i18n="proj2-desc">Built a Monte Carlo simulation system in Python and SQL to model failure rates and reliability behavior of offshore wind turbine components. Applied Poisson distribution methods to predict maintenance intervals and optimize system performance.</p>
+                    <p>Built a Monte Carlo simulation system in Python and SQL to model failure rates and reliability behavior of offshore wind turbine components. Applied Poisson distribution methods to predict maintenance intervals, validating outputs against theoretical benchmarks.</p>
                     <div class="project-tags">
                         <span class="tag-pill">Python</span>
                         <span class="tag-pill">SQL</span>
@@ -124,29 +113,29 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 data-i18n="proj3-title">2D AI Racer</h3>
-                        <span class="project-status" data-i18n="proj3-status">In Progress</span>
+                        <h3>2D AI Racer</h3>
+                        <span class="project-status">In Progress</span>
                     </div>
-                    <p data-i18n="proj3-desc">A top-down 2D racing game built from scratch in Python with Pygame. Implements vector-based car physics — acceleration, drag, and rotational steering resolved through trigonometric motion — with pixel-mask track borders as the groundwork for a self-driving agent that learns the racing line.</p>
+                    <p>A top-down 2D racing game built from scratch in Python with Pygame. Implements vector-based car physics — acceleration, drag, and rotational steering resolved through trigonometric motion — with pixel-mask track borders as the groundwork for a self-driving agent that learns the racing line.</p>
                     <div class="project-tags">
                         <span class="tag-pill">Python</span>
                         <span class="tag-pill">Pygame</span>
-                        <span class="tag-pill" data-i18n="pill-physics">Game Physics</span>
+                        <span class="tag-pill">Game Physics</span>
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/abdulla-ansari247/2D_AI_Racer" target="_blank" rel="noopener" class="project-link">
                             <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-                            <span data-i18n="proj-github">View on GitHub</span>
+                            <span>View on GitHub</span>
                         </a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 data-i18n="proj4-title">Portfolio Website</h3>
-                        <span class="project-status" data-i18n="proj4-status">Web</span>
+                        <h3>Portfolio Website</h3>
+                        <span class="project-status">Web</span>
                     </div>
-                    <p data-i18n="proj4-desc">This site — a responsive single-page portfolio hand-written in vanilla HTML, CSS, and JavaScript with no frameworks or build step. Features a scroll-synced navigation, a persistent light/dark theme, and full English/Hungarian localisation driven by a lightweight custom i18n layer.</p>
+                    <p>This site — a responsive single-page portfolio hand-written in vanilla HTML, CSS, and JavaScript with no frameworks or build step. Features a scroll-synced navigation, and a persistent light/dark theme.</p>
                     <div class="project-tags">
                         <span class="tag-pill">HTML</span>
                         <span class="tag-pill">CSS</span>
@@ -155,7 +144,7 @@
                     <div class="project-links">
                         <a href="https://github.com/abdulla-ansari247/portfolio_website" target="_blank" rel="noopener" class="project-link">
                             <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-                            <span data-i18n="proj-github">View on GitHub</span>
+                            <span>View on GitHub</span>
                         </a>
                     </div>
                 </div>
@@ -165,40 +154,60 @@
 
         <!-- SKILLS -->
         <section id="skills" class="section">
-            <h2 class="section-title" data-i18n="nav-skills">Skills</h2>
+            <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
 
                 <div class="skill-group">
-                    <h3 data-i18n="skills-prog">Programming</h3>
+                    <h3>Programming</h3>
                     <div class="skill-tags">
                         <span class="tag-pill">Python</span>
                         <span class="tag-pill">C++</span>
                         <span class="tag-pill">C</span>
                         <span class="tag-pill">SQL</span>
-                        <span class="tag-pill">JavaScript</span>
+                        <span class="tag-pill">MATLAB</span>
+                        <span class="tag-pill">Bash</span>
+                        <span class="tag-pill">JavaScript (Node.js)</span>
                         <span class="tag-pill">Java</span>
                         <span class="tag-pill">HTML</span>
+                        <span class="tag-pill">CSS</span>
                     </div>
                 </div>
 
                 <div class="skill-group">
-                    <h3 data-i18n="skills-tools">Tools &amp; Frameworks</h3>
+                    <h3>Tools &amp; Frameworks</h3>
                     <div class="skill-tags">
                         <span class="tag-pill">GEANT4</span>
                         <span class="tag-pill">Linux</span>
-                        <span class="tag-pill">Git</span>
+                        <span class="tag-pill">CMake</span>
+                        <span class="tag-pill">Git/GitHub</span>
+                        <span class="tag-pill">GitHub Actions</span>
+                        <span class="tag-pill">FastAPI</span>
+                        <span class="tag-pill">Pygame</span>
+                        <span class="tag-pill">Matplotlib</span>
                         <span class="tag-pill">SciLab</span>
                         <span class="tag-pill">Houdini</span>
+                        <span class="tag-pill">AutoCAD</span>
                     </div>
                 </div>
 
                 <div class="skill-group">
-                    <h3 data-i18n="skills-domain">Domain Knowledge</h3>
+                    <h3>Domain Knowledge</h3>
                     <div class="skill-tags">
-                        <span class="tag-pill" data-i18n="pill-num">Numerical Modelling</span>
-                        <span class="tag-pill" data-i18n="pill-stat">Statistical Modelling</span>
-                        <span class="tag-pill" data-i18n="pill-data">Data Analysis</span>
+                        <span class="tag-pill">Numerical Modelling</span>
+                        <span class="tag-pill">Statistical Modelling</span>
+                        <span class="tag-pill">Data Analysis</span>
                         <span class="tag-pill">Monte Carlo Methods</span>
+                        <span class="tag-pill">Simulation Development</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="tag-pill">English (C2)</span>
+                        <span class="tag-pill">Hindi (B1)</span>
+                        <span class="tag-pill">Italian (A2)</span>
+                        <span class="tag-pill">German (A1)</span>
                     </div>
                 </div>
 
@@ -207,18 +216,18 @@
 
         <!-- EXPERIENCE -->
         <section id="experience" class="section">
-            <h2 class="section-title" data-i18n="nav-experience">Experience</h2>
+            <h2 class="section-title">Experience</h2>
             <div class="timeline">
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3 data-i18n="exp1-title">B.Sc Physics</h3>
-                            <span class="timeline-date" data-i18n="exp1-date">Sept. 2023 — Present</span>
+                            <h3>B.Sc Physics</h3>
+                            <span class="timeline-date">Sept. 2023 — Jan. 2027</span>
                         </div>
-                        <p class="timeline-org" data-i18n="exp1-org">University of Debrecen, Hungary</p>
-                        <p data-i18n="exp1-desc">Coursework spanning classical mechanics, electrodynamics, quantum mechanics, nuclear physics, thermodynamics, and computational physics. Research focused on simulation development with GEANT4 and Python in Linux environments.</p>
+                        <p class="timeline-org">University of Debrecen, Hungary</p>
+                        <p>Coursework spanning classical mechanics, electrodynamics, quantum mechanics, nuclear physics, thermodynamics, and computational physics, with two years of electronics and a year of formal programming in C and Python. Research focused on simulation development with GEANT4 and Python in Linux environments.</p>
                     </div>
                 </div>
 
@@ -226,11 +235,11 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3 data-i18n="exp2-title">Freelance Programming Developer</h3>
-                            <span class="timeline-date" data-i18n="exp2-date">Jan. 2021 — Present</span>
+                            <h3>Battery Cell Quality &amp; Sorting Operative</h3>
+                            <span class="timeline-date">Jun. 2026 — Present</span>
                         </div>
-                        <p class="timeline-org" data-i18n="exp2-org">Independent / Remote</p>
-                        <p data-i18n="exp2-desc">Built custom software solutions for client projects using Python, JavaScript (Node.js), Java, and HTML. Handled backend logic, interactive web components, and end-to-end delivery while managing client communication independently.</p>
+                        <p class="timeline-org">CATL (Contemporary Amperex Technology), Debrecen, Hungary</p>
+                        <p>Working on the production line of one of the world’s largest lithium-ion battery manufacturers. Operating to tight tolerances in a precision-driven manufacturing environment where consistency and attention to detail directly determine downstream product reliability.</p>
                     </div>
                 </div>
 
@@ -238,11 +247,11 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3 data-i18n="exp3-title">Battery Cell Quality &amp; Sorting Operative</h3>
-                            <span class="timeline-date" data-i18n="exp3-date">Jun. 2026 — Present</span>
+                            <h3>Website Developer</h3>
+                            <span class="timeline-date">Jul. 2026 — Present</span>
                         </div>
-                        <p class="timeline-org" data-i18n="exp3-org">CATL (Contemporary Amperex Technology), Debrecen, Hungary</p>
-                        <p data-i18n="exp3-desc">Working on the production line of one of the world’s largest lithium-ion battery manufacturers. Operating to tight tolerances in a precision-driven manufacturing environment where consistency and attention to detail directly determine downstream product reliability.</p>
+                        <p class="timeline-org">Independent / Remote</p>
+                        <p>Running my own small web business, releasing every site through CI/CD with GitHub Actions only once it has been tested. Built this portfolio site in vanilla JavaScript with persistent light/dark theming.</p>
                     </div>
                 </div>
 
@@ -250,11 +259,11 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3 data-i18n="exp4-title">Private Tutor</h3>
-                            <span class="timeline-date" data-i18n="exp4-date">Sept. 2020 — Jul. 2026</span>
+                            <h3>Private Tutor</h3>
+                            <span class="timeline-date">Sept. 2020 — Jul. 2026</span>
                         </div>
-                        <p class="timeline-org" data-i18n="exp4-org">Independent / Remote</p>
-                        <p data-i18n="exp4-desc">One-to-one tutoring in Mathematics, Physics, and Computer Science at primary and secondary level. Focus on structured problem-solving, conceptual understanding, and exam preparation.</p>
+                        <p class="timeline-org">Independent / Remote</p>
+                        <p>Built a one-to-one tutoring practice in Mathematics, Physics, and Computer Science from scratch, grown almost entirely by referral. Adapted my delivery to each student and to parents as the paying clients, with a focus on structured problem-solving, conceptual understanding, and exam preparation.</p>
                     </div>
                 </div>
 
@@ -262,11 +271,23 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3 data-i18n="exp5-title">Relationship Manager</h3>
-                            <span class="timeline-date" data-i18n="exp5-date">Feb. 2023 — Jul. 2023</span>
+                            <h3>Relationship Manager</h3>
+                            <span class="timeline-date">Feb. 2023 — Jul. 2023</span>
                         </div>
-                        <p class="timeline-org" data-i18n="exp5-org">Bellavista Real Estate, Dubai, UAE</p>
-                        <p data-i18n="exp5-desc">Acted as the central point of contact between clients, agents, developers, and international agencies, coordinating across multiple parties to keep deals moving and ensure everyone stayed aligned. Built strong working relationships in a fast-paced, people-driven environment.</p>
+                        <p class="timeline-org">Bellavista Real Estate, Dubai, UAE</p>
+                        <p>Acted as the central point of contact between clients, agents, developers, and international agencies, coordinating across multiple parties to keep deals moving and ensure everyone stayed aligned. Built strong working relationships in a fast-paced, people-driven environment.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Programming Developer</h3>
+                            <span class="timeline-date">Jan. 2021 — Feb. 2022</span>
+                        </div>
+                        <p class="timeline-org">Independent / Remote</p>
+                        <p>Delivered self-sourced client briefs end to end — scoping, agreeing the work, building, and following up — across Python, SQL, JavaScript (Node.js), Java, and HTML. Built an automated participant management system for a client, handling registration and record keeping for large groups, from backend data processing to the web front end.</p>
                     </div>
                 </div>
 
@@ -276,7 +297,7 @@
         <!-- CV -->
         <section id="cv" class="section">
             <h2 class="section-title">CV</h2>
-            <p class="section-sub" data-i18n="cv-sub">Interested in me? You can view or download my CV from here.</p>
+            <p class="section-sub">Interested in me? You can view or download my CV from here.</p>
             <div class="cv-card-wrap">
                 <a href="cv.pdf" target="_blank" class="project-card cv-card">
                     <h3>Abdulla Ansari — CV</h3>
@@ -286,8 +307,8 @@
 
         <!-- CONTACT -->
         <section id="contact" class="section">
-            <h2 class="section-title" data-i18n="nav-contact">Contact</h2>
-            <p class="section-sub" data-i18n="contact-sub">Have a question, opportunity, or just want to chat? I'm happy to hear from you.</p>
+            <h2 class="section-title">Contact</h2>
+            <p class="section-sub">Have a question, opportunity, or just want to chat? I'm happy to hear from you.</p>
             <div class="contact-list">
                 <p>Email: <a href="mailto:abdulla.s.ansari247@gmail.com">abdulla.s.ansari247@gmail.com</a></p>
                 <p>LinkedIn: <a href="https://linkedin.com/in/abdulla-ansari-1247e" target="_blank">linkedin.com/in/abdulla-ansari-1247e</a></p>
@@ -302,12 +323,12 @@
 
         <!-- Decorative only. Click it for a different constant. -->
         <button class="constant" id="constant" type="button">
-            <span class="constant-label" data-i18n="constant-label">Constant of the moment</span>
+            <span class="constant-label">Constant of the moment</span>
             <span class="constant-value" id="constantValue"></span>
             <span class="constant-name" id="constantName"></span>
         </button>
     </footer>
 
-    <script src="js/main.js?v=4"></script>
+    <script src="js/main.js?v=6"></script>
 </body>
 </html>
